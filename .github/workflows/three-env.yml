@@ -1,0 +1,33 @@
+name: Simple Env 3 Env
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  DEV:
+    runs-on: ubuntu-latest
+    environment: DEV
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run a Script
+        run: |
+          echo "This is the Dev Environment"
+
+  QA:
+    runs-on: ubuntu-latest
+    environment: QA
+    needs: DEV
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run a Script
+        run: |
+          echo "This is the QA Environment"
+
+  PROD:
+    runs-on: ubuntu-latest
+    environment: PROD
+    needs: QA
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run a Script
+        run: |
+          echo "This is the PROD Environment"
