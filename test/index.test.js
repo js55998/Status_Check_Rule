@@ -11,6 +11,9 @@ test('Multiply 2*2 to equal 4', () => {
 test('Div 15 / 3 to equal 5', () => {
     expect(cal.div(15, 3)).toBe(5);
 });
-test('Mod 15 % 3 to equal 5', () => {
+test('Mod 15 % 3 to equal 0', () => {
     expect(cal.mod(15, 3)).toBe(0);
+});
+test('Mod 25 % 5 to equal 0', () => {
+    expect(cal.mod(25, 5)).toBe(0);
 });
